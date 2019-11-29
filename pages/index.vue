@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <div class="py-4 d-flex justfy-content-center flex-column">
-  <b-card img-src="https://placekitten.com/300/300" img-alt="Card image" img-left class="mb-3">
+  <b-card id="b-card" img-src="https://placekitten.com/300/300" img-alt="Card image" img-left class="mb-3">
       <nuxt-link to="/posts/1">
       <b-card-text>
         Some quick example text to build on the card and make up the bulk of the card's content.
@@ -10,7 +10,7 @@
     </b-card>
 
 
-    <b-card img-src="https://placekitten.com/300/300" img-alt="Card image" img-right>
+    <b-card id="b-card" img-src="https://placekitten.com/300/300" img-alt="Card image" img-right>
       <nuxt-link to="/posts/1">
       <b-card-text>
         Some quick example text to build on the card and make up the bulk of the card's content.
@@ -59,6 +59,11 @@ export default {
   word-spacing: 5px;
   padding-bottom: 15px;
 }
+
+ #b-card:hover {
+        opacity: 0.5;
+        cursor: pointer;
+    }
 
 .links {
   padding-top: 15px;
