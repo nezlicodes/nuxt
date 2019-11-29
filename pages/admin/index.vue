@@ -5,6 +5,8 @@
         </section>
 
         <section class="existing-posts">
+            <h3><u>All Posts</u></h3>
+            <hr>
             <PostsList />
         </section>
     </div>
