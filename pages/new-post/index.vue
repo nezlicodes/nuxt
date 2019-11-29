@@ -8,21 +8,45 @@
                 <form action="" method="post">
                     <div class="form-group">
                         <lable class="label" for="title">Title</lable>
-                        <input type="text" name="title" id="title" class="form-control">
+                        <input type="text" name="title" id="title" v-model="newPost.title" class="form-control">
                     </div>
                      <div class="form-group">
                         <lable class="label" for="desciption">Description</lable>
-                        <input type="text" name="description" id="description" class="form-control">
+                        <input type="text" name="description" id="description" v-model="newPost.description" class="form-control">
                     </div>
                      <div class="form-group">
                         <lable class="label" for="content">Content</lable>
-                        <textarea type="text" name="content" id="content" rows="10" class="form-control"> </textarea>
+                        <textarea type="text" name="content" id="content" rows="10" v-model="newPost.content" class="form-control"> </textarea>
                     </div>
                     <div class="form-group">
-                        <b-button variant="success"> Post </b-button>
+                        <b-button variant="danger" @click="onCancel()">Cancel</b-button>
+                        <b-button variant="success" @click="onSave()"> Post </b-button>
                     </div>
                 </form>
             </b>
         </b-card>
     </div>
 </template>
+
+
+<script>
+export default {
+    data() {
+        return {
+            newPost: {
+                title: '',
+                description:'',
+                content:''
+            }
+        }
+    },
+    methods: {
+        onCancel: function () {
+            this.$router.push('/admin')
+        },
+        onSave: function() {
+            console.log(this.newPost)
+        }
+    }
+}
+</script>
