@@ -63,4 +63,9 @@ export default {
 .links {
   padding-top: 15px;
 }
+.nuxt-link-active {
+  font-weight: 800;
+  color: white;
+  text-decoration: underline;
+}
 </style>
