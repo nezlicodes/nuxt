@@ -1,15 +1,15 @@
-const express = require('express')
-const router = express.Router()
-
+const express = require("express");
+const router = express.Router();
+const mongoose = require("mongoose");
 mongoose.connect(process.env.MONGODB_URI, {
   useNewUrlParser: true
-})
-const db = mongoose.connection
-id('err', (err) => console.log(err))
-idce('open', () => console.log('Connected to database'))
+});
+const db = mongoose.connection;
+db.on("err", err => console.log(err));
+db.once("open", () => console.log("Connected to database"));
 
-router.get('/api', (req, res) => {
-  res.send('Hello api')
-})
+router.get("/api", (req, res) => {
+  res.send("Hello api");
+});
 
-module.exports = router
+module.exports = router;
