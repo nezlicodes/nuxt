@@ -1,17 +1,17 @@
 <template>
   <div class="container">
-    <PostsLists />
+  
   </div>
 </template>
 
 <script>
 import Logo from '~/components/Logo.vue'
-import PostsLists from '~/components/postsList'
+
 
 export default {
   components: {
     Logo,
-    PostsLists
+    
   }
 }
 </script>
@@ -54,7 +54,6 @@ export default {
   padding-top: 15px;
 }
 .nuxt-link-active {
-  font-weight: 800;
   color: white;
   text-decoration: underline;
 }

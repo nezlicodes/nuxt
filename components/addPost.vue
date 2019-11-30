@@ -15,17 +15,27 @@
                         <input type="text" name="description" id="description" v-model="newPost.description" class="form-control">
                     </div>
                      <div class="form-group">
-                        <label class="label" for="content">Content</label>
-                        <textarea type="text" name="content" id="content" rows="10" v-model="newPost.content" c class="form-control textarea"> </textarea>
+                         <label class="label" for="content">Content</label>
+                       <!--   <div class="buttons d-flex">
+                             <button class="btn" @click.prevent="bold = !bold"><font-awesome-icon :icon="['fas', 'bold']"/></button>
+                             <button class="btn" @click.prevent="underline = !underline"><font-awesome-icon :icon="['fas', 'underline']"/></button>
+                             <button class="btn" @click.prevent="underline = !underline"><font-awesome-icon :icon="['fas', 'heading']"/></button>
+                         </div> -->
+                        <textarea type="text" name="content" placeholder="type some html here" id="content" rows="10" v-bind:class="{'bold': bold, 'underline': underline}" v-model="newPost.content" c class="form-control textarea"> </textarea>
                     </div>
+                         <div class="card-body"> 
+            <p class="card-text"  v-html="newPost.content">
+            
+            </p>
+             </div>
                     <div class="form-group">
                         <b-button variant="danger" @click="onCancel()">Cancel</b-button>
                         <b-button variant="success" @click="onSave()"> Post </b-button>
                     </div>
                 </form>
-                <font-awesome-icon :icon="['fab', 'linkedin']"/>
             </b>
         </b-card>
+   
     </div>
 </template>
 
@@ -38,7 +48,9 @@ export default {
                 title: '',
                 description:'',
                 content:''
-            }
+            },
+            bold: false,
+            underline:false
         }
     },
     methods: {
@@ -46,14 +58,21 @@ export default {
             this.$router.push('/admin')
         },
         onSave: function() {
-            console.log(this.newPost)
+            alert(this.newPost)
         }
+
     }
 }
 </script>
 
 <style>
-    .textarea {
+    .bold {
        font-weight: bold
+    }
+    .underline{
+        text-decoration: underline;
+    }
+    .buttons {
+        border: solid 2px ghostwhite
     }
 </style>
