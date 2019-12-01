@@ -16,14 +16,23 @@
       </b-card-text>
       </nuxt-link>
     </b-card>
+      <div>
+      {{articles}}
     </div>
+    </div>
+  
 </template>
 
 <script>
 export default {
     name: 'PostsLists',
     created() {
-     
+     this.$store.dispatch('posts/getArticles');
+    },
+    computed: {
+      articles: function () {
+        return this.$store.state.posts.articles;
+      }
     }
 }
 </script>
