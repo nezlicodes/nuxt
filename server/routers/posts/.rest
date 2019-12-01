@@ -1,0 +1,12 @@
+POST http://localhost:3000/api/posts HTTP/1.1
+content-type: application/json
+
+{
+    "title": "Test",
+    "content": "This is a test",
+    "description" : "testing my API"
+}
+
+###
+
+GET http://localhost:3000/api/posts

@@ -1,6 +1,7 @@
 require('dotenv').config()
 const express = require('express')
 const consola = require('consola')
+const bodyParser = require('body-parser');
 const router = require('./router')
 const {
   Nuxt,
@@ -29,6 +30,11 @@ async function start() {
     await nuxt.ready()
   }
 
+  // Important middlewares
+  app.use(bodyParser.json())
+  app.use(bodyParser.urlencoded({
+    extended: false
+  }))
   // Routing
   app.use(router);
   app.use('/api/posts', postsRouter)

@@ -4,7 +4,7 @@ const postsSchema = new mongoose.Schema({
     type: String,
     required: [true, "Username is required"]
   },
-  created: {
+  created_at: {
     type: String
   },
   content: {

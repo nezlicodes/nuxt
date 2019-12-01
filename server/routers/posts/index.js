@@ -12,4 +12,19 @@ router.get("/", async (req, res) => {
   }
 });
 
+router.post('/', async (req, res) => {
+  const new_post = new Post({
+    title: req.body.title,
+    content: req.body.content,
+    description: req.body.description,
+    created_at: moment().format("MMM Do YY"),
+  })
+  try {
+    const created_article = await new_post.save().then(res =>
+      res.json(res))
+  } catch (err) {
+    res.json(err)
+  }
+})
+
 module.exports = router
