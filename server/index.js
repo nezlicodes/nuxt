@@ -7,7 +7,7 @@ const {
   Builder
 } = require('nuxt')
 const app = express()
-
+const postsRouter = require('./routers/posts/index')
 // Import and Set Nuxt.js options
 const config = require('../nuxt.config.js')
 config.dev = process.env.NODE_ENV !== 'production'
@@ -31,7 +31,7 @@ async function start() {
 
   // Routing
   app.use(router);
-
+  app.use('/api/posts', postsRouter)
   // Give nuxt middleware to express
   app.use(nuxt.render)
 
