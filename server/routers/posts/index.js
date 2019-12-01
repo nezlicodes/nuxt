@@ -4,9 +4,10 @@ const moment = require("moment");
 const Post = require("/home/benmeradi/Desktop/projects/my_ape/server/schemas/posts/index.js");
 
 router.get("/", async (req, res) => {
-  const posts = Post.find({});
+  const posts = await Post.find({});
   try {
-    await posts.then(res => res.json(posts));
+    console.log(posts)
+    res.json(posts)
   } catch (err) {
     res.json(err);
   }
@@ -20,8 +21,10 @@ router.post('/', async (req, res) => {
     created_at: moment().format("MMM Do YY"),
   })
   try {
-    const created_article = await new_post.save().then(res =>
-      res.json(res))
+    new_post.save().then(data => {
+      console.log(data)
+      console.log(Post.find())
+    })
   } catch (err) {
     res.json(err)
   }

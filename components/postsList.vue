@@ -21,6 +21,9 @@
 
 <script>
 export default {
-    name: 'PostsLists'
+    name: 'PostsLists',
+    created() {
+     
+    }
 }
 </script>
