@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const moment = require("moment");
-const Post = require("/home/benmeradi/Desktop/projects/my_ape/server/schemas/posts/index.js");
+const Post = require("./postSchema");
 
 // Get all posts
 router.get("/", async (req, res) => {
