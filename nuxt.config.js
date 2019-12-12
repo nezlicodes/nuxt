@@ -1,7 +1,10 @@
 module.exports = {
-    mode: 'universal',
+    mode: 'spa',
     router: {
         base: '/nuxt/'
+    },
+    env: {
+        baseUrl: process.env.BASE_URL || 'http://localhost:3000'
     },
     /*
      ** Headers of the page
