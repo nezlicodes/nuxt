@@ -1,7 +1,8 @@
 import Vuex from 'vuex';
 import Axios from 'axios';
 
-const url = process.env.BASE_URL + '/api/posts'
+const url = process.env.BASE_URL || 'http://localhost:3000'
+const path = url + '/api/posts'
 
 export const store = new Vuex.Store({
     modules: {
@@ -22,12 +23,12 @@ export const store = new Vuex.Store({
                 getArticles({
                     commit
                 }) {
-                    Axios.get(url).then((response) => {
+                    Axios.get(path).then((response) => {
                         commit('GET_ALL_ARTICLES', response.data)
                     })
                 },
                 postNewArticle(commit, payload) {
-                    Axios.post(url, post).then(res => {
+                    Axios.post(path, post).then(res => {
                         commit('CREATE_NEW_ARTICLE', payload)
                     })
                 },
