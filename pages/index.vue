@@ -46,7 +46,6 @@ export default {
 }
 
  #b-card:hover {
-        opacity: 0.5;
         cursor: pointer;
     }
 
