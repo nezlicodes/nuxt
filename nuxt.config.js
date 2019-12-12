@@ -1,8 +1,5 @@
 module.exports = {
     mode: 'spa',
-    router: {
-        base: '/nuxt/'
-    },
     env: {
         baseUrl: process.env.BASE_URL || 'http://localhost:3000'
     },
@@ -76,4 +73,14 @@ module.exports = {
          */
         extend(config, ctx) {}
     }
+}
+
+const routerBase = process.env.DEPLOY_ENV === 'GH_PAGES' ? {
+    router: {
+        base: '/<repository-name>/'
+    }
+} : {}
+
+export default {
+    ...routerBase
 }
